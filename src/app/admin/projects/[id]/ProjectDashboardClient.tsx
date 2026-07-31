@@ -62,7 +62,7 @@ export default function ProjectDashboardClient({ project, availableProducts, ava
             setSelectedProduct(null);
             setSearchQuery('');
           }} style={{ background: 'rgba(0,0,0,0.02)', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '1px solid var(--border)' }}>
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div className="project-form-row">
               <div className="form-group" style={{ flex: 2, margin: 0, position: 'relative' }}>
                 <input 
                   type="text" 
@@ -397,7 +397,7 @@ export default function ProjectDashboardClient({ project, availableProducts, ava
             await assignInstaller(null, formData);
             setAddingInstaller(false);
           }} style={{ background: 'rgba(0,0,0,0.02)', padding: '16px', borderRadius: '8px', marginBottom: '20px', border: '1px solid var(--border)' }}>
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div className="project-form-row">
               <div className="form-group" style={{ flex: 1.5, margin: 0 }}>
                 <select 
                   name="installerId" 

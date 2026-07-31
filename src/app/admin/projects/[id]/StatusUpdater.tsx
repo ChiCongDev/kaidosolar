@@ -28,13 +28,14 @@ export default function StatusUpdater({ projectId, currentStatus }: { projectId:
   const currentIndex = steps.findIndex(s => s.id === currentStatus);
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', maxWidth: '400px' }}>
+    <div className="status-steps-container">
       {steps.map((step, index) => {
         const isActive = index === currentIndex;
         const isPast = index < currentIndex;
+        const isLast = index === steps.length - 1;
         
         return (
-          <div key={step.id} style={{ display: 'flex', alignItems: 'center', flex: index === steps.length - 1 ? '0' : '1' }}>
+          <div key={step.id} className={isLast ? "status-step-item-last" : "status-step-item"}>
             <button
               onClick={() => handleStepClick(step.id)}
               disabled={isUpdating}
@@ -59,13 +60,8 @@ export default function StatusUpdater({ projectId, currentStatus }: { projectId:
             
             {/* Connecting Line */}
             {index < steps.length - 1 && (
-              <div style={{
-                height: '3px',
-                flex: 1,
+              <div className="status-step-line" style={{
                 background: isPast ? step.activeBg : 'var(--border)',
-                margin: '0 8px',
-                borderRadius: '2px',
-                transition: 'all 0.3s'
               }}></div>
             )}
           </div>

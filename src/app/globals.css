@@ -1577,5 +1577,129 @@ button, a, [role="button"], label {
   box-shadow: 0 0 1px var(--primary);
 }
 
+/* === PROJECT MANAGEMENT RESPONSIVE UPDATES === */
+.header-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
+.project-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
 
+.project-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.project-form-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Status steps responsive */
+.status-steps-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.status-step-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.status-step-item-last {
+  display: flex;
+  align-items: center;
+  flex: 0;
+}
+
+.status-step-line {
+  height: 3px;
+  flex: 1;
+  margin: 0 8px;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1024px) {
+  .project-detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .page-header .btn,
+  .page-header .btn-primary,
+  .page-header .btn-back {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  .header-actions > a,
+  .header-actions > button,
+  .header-actions > .btn-back {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .project-form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .project-form-row > .form-group {
+    flex: none !important;
+    margin: 0 !important;
+    width: 100%;
+  }
+  .project-form-row > button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .status-steps-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    max-width: 100%;
+  }
+  .status-step-item,
+  .status-step-item-last {
+    flex: none;
+    width: 100%;
+  }
+  .status-step-item button,
+  .status-step-item-last button {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .status-step-line {
+    display: none !important;
+  }
+}

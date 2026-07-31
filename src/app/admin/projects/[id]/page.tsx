@@ -45,10 +45,10 @@ export default async function ProjectDashboardPage({ params }: { params: Promise
   return (
     <div className="page-wrapper">
       <div className="page-header">
-        <div className="page-title" style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="page-title">
           Chi tiết dự án: <RenameProjectTitle projectId={project.id} initialName={project.name} />
         </div>
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+        <div className="header-actions">
           <Link href={`/admin/projects/${project.id}/print-diagram`} target="_blank" className="btn btn-primary" style={{ background: '#ec4899', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '6px', textDecoration: 'none', color: 'white', fontWeight: 600 }}>
             <Printer size={18} />
             Xuất Sơ Đồ Điện
@@ -80,8 +80,8 @@ export default async function ProjectDashboardPage({ params }: { params: Promise
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '24px', alignItems: 'start' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div className="project-detail-layout">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%', minWidth: 0 }}>
           
           {/* OVERVIEW CARD */}
           <div className="card">
@@ -89,7 +89,7 @@ export default async function ProjectDashboardPage({ params }: { params: Promise
               <FileText size={20} color="var(--primary)" />
               Thông tin chung
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div className="project-overview-grid">
               <div style={{ display: 'flex', width: '100%' }}>
                 <CustomerUpdater projectId={project.id} currentCustomer={project.customer} availableCustomers={availableCustomers} />
               </div>
